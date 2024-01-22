@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+
+const projects = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout
+	title="Surprise!! | Portafolio"
+	description="Sorpresa!!"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Youtube videos"
+				tagline="Varios videos del contenido que usualmente consumo:"
+				align="start"
+			/>
+			<Grid variant="offset">
+				<iframe src="https://www.youtube.com/embed/bguUc2ZhNaY" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/r6tH55syq0o" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/pBusMu6yigQ" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/lSD_L-xic9o" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+			</Grid>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>

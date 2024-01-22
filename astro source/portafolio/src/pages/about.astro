@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<BaseLayout title="Contacto | Portafolio" description="Informacion de contacto">
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <Hero
+        title="Sobre mi: "
+        tagline="En esta seccion, se encuentra mi informacion de contacto."
+      >
+        <img
+          width="1553"
+          height="873"
+          src="/assets/maps.jpg"
+          alt="Jeanine White at work with a colleague"
+        />
+      </Hero>
+
+      <section>
+        <h2 class="section-title">CONTACTO</h2>
+        <div class="content">
+          <p>Direccion Actual: Calle Leoncion Ruiz #18</p>
+          <p>Telefono: 849-473-5647</p>
+          <p>
+            Correo Electronico: <a href="mailto:20210451@itla.edu.do"
+              >20210451@itla.edu.do</a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">SOBRE MI</h2>
+        <div class="content">
+          <p>
+            Mi nombre completo es Angel Enrique Marcelino Rosario, Estudio
+            desarrollo en el <a href="https://itla.edu.do/">ITLA</a>
+            en donde me estoy desarrollando como programador para mi futuro, tengo
+            como meta poder ser un desarrollador de software full stack, y me estoy
+            preparando para ello.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">EDUCACION</h2>
+        <div class="content">
+          <p>
+            Soy egresado del Colegio San Gabriel De La Dolorsa (instituto
+            especialido en Tecnologia-Matematicas) 2019
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">HABILIDADES</h2>
+        <div class="content">
+          <p>Ingles: Medio</p>
+          <p>Programacion: Medio</p>
+          <p>Multimedia: Alto</p>
+          <p>Reparacion de equipos: Alto</p>
+          <p>Redes: Medio</p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">HOBBIES</h2>
+        <div class="content">
+          <p>
+            Me gusta producir musica, y tocar instrumentos como la guitarra,
+            piano y bateria, poseeo algunos demos pero creo que aun no veran la
+            luz, me gustan los videojuegos debido a que mi padre le encantaban
+            los videojuegos como <a
+              href="https://en.wikipedia.org/wiki/Street_Fighter_II"
+              >Street Fighter 2</a
+            >,
+            <a href="https://en.wikipedia.org/wiki/The_King_of_Fighters_2002"
+              >KOF 2002</a
+            > y otros mas, asi que se me quedo ese gusto.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+
+  .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  .content {
+    grid-column: 2 / 4;
+  }
+
+  .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .content :global(a:hover),
+  .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+</style>
